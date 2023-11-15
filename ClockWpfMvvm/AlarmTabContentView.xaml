@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="ClockWpfMvvm.Views.AlarmTabContentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <!--<UserControl.DataContext>
+        <viewModels:AlarmViewModel/>
+    </UserControl.DataContext>-->
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.ColumnSpan="3" Content="Alarm" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36"/>
+        <TextBox Text="{Binding Hour, UpdateSourceTrigger=PropertyChanged}" x:Name="hourTxtBox" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Width="44" Margin="275,0,0,0" />
+        <Label Content=":" Grid.Row="2" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox Text="{Binding Minute, UpdateSourceTrigger=PropertyChanged}" x:Name="minutesTxtBox" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Width="44" Margin="0,0,275,0" />
+        <Button x:Name="btnSetAlarm" Command="{Binding SetAlarmCommand, UpdateSourceTrigger=PropertyChanged}" Content="Set Alarm" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" RenderTransformOrigin="-0.005,0.708" />
+        <Button x:Name="btnStopAlarm" Command="{Binding StopAlarmCommand, UpdateSourceTrigger=PropertyChanged}" Content="Stop Alarm" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" RenderTransformOrigin="-0.005,0.708" />
+    </Grid>
+</UserControl>

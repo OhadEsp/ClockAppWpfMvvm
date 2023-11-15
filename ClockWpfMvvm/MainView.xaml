@@ -1,0 +1,40 @@
+﻿<Window x:Class="ClockWpfMvvm.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClockWpfMvvm.Views"
+        xmlns:vm="clr-namespace:Clock.ViewModels;assembly=ViewModels"
+        mc:Ignorable="d"
+        Title="Clock" Height="450" Width="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <TabControl x:Name="tabControl" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding TabItems}" SelectedIndex="{Binding SelectedIndex}">
+            <TabControl.Resources>
+                <DataTemplate DataType="{x:Type vm:AlarmViewModel}">
+                    <local:AlarmTabContentView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:StopWatchViewModel}">
+                    <local:StopWatchContentView />
+                </DataTemplate>
+            </TabControl.Resources>
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding TabName}"/>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+        </TabControl>
+    </Grid>
+</Window>
