@@ -18,11 +18,6 @@ namespace Clock.ViewModels
             _alarmViewModel.PropertyChanged += OnViewModelPropertyChanged;
         }
 
-        public override bool CanExecute(object parameter)
-        {
-            return CanExecuteShared(parameter);
-        }
-
         protected bool CanExecuteShared(object parameter)
         {
             if (_alarmViewModel.ClockAlarm == null) return false;
@@ -41,7 +36,7 @@ namespace Clock.ViewModels
             if (e.PropertyName == nameof(AlarmViewModel.Hour) || 
                 e.PropertyName == nameof(AlarmViewModel.Minute))
             {
-                OnCanExecutedChanged();
+                RaiseCanExecutedChanged();
             }
         }
     }

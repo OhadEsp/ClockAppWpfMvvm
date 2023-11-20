@@ -65,7 +65,7 @@ namespace Models
             IsAlarmSet = false;
         }
 
-        public async Task CheckTime()
+        public async Task CheckTimeAsync()
         {
             await Task.Run(() =>
             {

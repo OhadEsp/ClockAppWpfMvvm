@@ -18,7 +18,7 @@ namespace Clock.ViewModels
 
         public abstract void Execute(object parameter);
 
-        protected void OnCanExecutedChanged()
+        internal void RaiseCanExecutedChanged()
         {
             CanExecuteChanged?.Invoke(this, new EventArgs());
         }

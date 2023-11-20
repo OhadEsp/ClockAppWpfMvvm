@@ -32,7 +32,7 @@ namespace Clock.ViewModels
             set
             {
                 _clockAlarm.Hour = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -45,7 +45,7 @@ namespace Clock.ViewModels
             set 
             { 
                 _clockAlarm.Minute = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
