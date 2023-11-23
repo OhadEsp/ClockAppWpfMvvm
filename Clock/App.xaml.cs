@@ -1,4 +1,5 @@
 ﻿using Clock.ViewModels;
+using Clock.Views;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Navigation;
 
-namespace ClockWpfMvvm.Views
+namespace Clock.Views
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -20,13 +21,16 @@ namespace ClockWpfMvvm.Views
             //var mainViewModel = new MainViewModel();
             //mainViewModel.TabItems.Add(new AlarmViewModel());
             //mainViewModel.TabItems.Add(new StopWatchViewModel());
-            MainWindow = new MainView()
-            {
-                DataContext = new MainViewModel()
-            };
+            //MainWindow = new MainView()
+            //{
+            //    DataContext = new MainViewModel()
+            //};
+
+            var bootstrapper = new Bootstrapper();
+            bootstrapper.Start();
             
-            MainWindow.Show();
-            base.OnStartup(e);
+            //MainWindow.Show();
+            //base.OnStartup(e);
         }
     }
 }

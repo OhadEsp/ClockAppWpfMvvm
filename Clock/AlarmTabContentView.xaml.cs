@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ClockWpfMvvm.Views
+namespace Clock.Views
 {
     /// <summary>
     /// Interaction logic for AlarmUserControl.xaml
