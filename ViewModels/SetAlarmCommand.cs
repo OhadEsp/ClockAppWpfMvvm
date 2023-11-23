@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -29,11 +30,13 @@ namespace Clock.ViewModels
 
         public async Task ExecuteAsync(object parameter)
         {
+            List<Task> tasks = new List<Task>();
             _alarmViewModel.ClockAlarm.SetOn();
-            var checkTimeTask = _alarmViewModel.ClockAlarm.CheckTimeAsync();
+            tasks.Add(_alarmViewModel.ClockAlarm.CheckTimeAsync());
+            tasks.Add(_alarmViewModel.UpdateTimeLeftMsg());
             ((CommandBase)_alarmViewModel.StopAlarmCommand).RaiseCanExecutedChanged();
             RaiseCanExecutedChanged();
-            await checkTimeTask;
+            await Task.WhenAll(tasks);
         }
     }
 }

@@ -18,9 +18,9 @@ namespace ClockWpfMvvm.Views
     /// <summary>
     /// Interaction logic for StopWatchView.xaml
     /// </summary>
-    public partial class StopWatchContentView : UserControl
+    public partial class StopWatchView : UserControl
     {
-        public StopWatchContentView()
+        public StopWatchView()
         {
             InitializeComponent();
         }

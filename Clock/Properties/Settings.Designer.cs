@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClockWpfMvvm.Views.Properties {
+namespace Clock.Views.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

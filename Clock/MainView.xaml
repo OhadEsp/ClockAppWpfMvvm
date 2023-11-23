@@ -27,7 +27,7 @@
                     <local:AlarmTabContentView />
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type vm:StopWatchViewModel}">
-                    <local:StopWatchContentView />
+                    <local:StopWatchView />
                 </DataTemplate>
             </TabControl.Resources>
             <TabControl.ItemTemplate>

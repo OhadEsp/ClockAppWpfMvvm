@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A7F67CBC-1166-4047-BCA6-1240CF0433ED}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ClockWpfMvvm.Views</RootNamespace>
-    <AssemblyName>ClockWpfMvvm</AssemblyName>
+    <RootNamespace>Clock.Views</RootNamespace>
+    <AssemblyName>Clock</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -82,8 +82,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="StopWatchContentView.xaml.cs">
-      <DependentUpon>StopWatchContentView.xaml</DependentUpon>
+    <Compile Include="StopWatchView.xaml.cs">
+      <DependentUpon>StopWatchView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -130,7 +130,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StopWatchContentView.xaml">
+    <Page Include="StopWatchView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

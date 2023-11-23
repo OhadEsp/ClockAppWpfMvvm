@@ -27,12 +27,12 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="40" />
         </Grid.ColumnDefinitions>
-
         <Label Grid.ColumnSpan="3" Content="Alarm" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36"/>
         <TextBox Text="{Binding Hour, UpdateSourceTrigger=PropertyChanged}" x:Name="hourTxtBox" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Width="44" Margin="275,0,0,0" />
         <Label Content=":" Grid.Row="2" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <TextBox Text="{Binding Minute, UpdateSourceTrigger=PropertyChanged}" x:Name="minutesTxtBox" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Width="44" Margin="0,0,275,0" />
-        <Button x:Name="btnSetAlarm" Command="{Binding SetAlarmCommand, UpdateSourceTrigger=PropertyChanged}" Content="Set Alarm" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" RenderTransformOrigin="-0.005,0.708" />
-        <Button x:Name="btnStopAlarm" Command="{Binding StopAlarmCommand, UpdateSourceTrigger=PropertyChanged}" Content="Stop Alarm" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" RenderTransformOrigin="-0.005,0.708" />
+        <TextBlock x:Name="txtBlockAlarm" Text="{Binding TimeLeftMsg, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="3" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Button x:Name="btnSetAlarm" Command="{Binding SetAlarmCommand, UpdateSourceTrigger=PropertyChanged}" Content="Set Alarm" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" RenderTransformOrigin="-0.005,0.708" />
+        <Button x:Name="btnStopAlarm" Command="{Binding StopAlarmCommand, UpdateSourceTrigger=PropertyChanged}" Content="Stop Alarm" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" RenderTransformOrigin="-0.005,0.708" />
     </Grid>
 </UserControl>

@@ -1,4 +1,4 @@
-﻿using Models;
+﻿using Clock.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -49,6 +49,20 @@ namespace Clock.ViewModels
             }
         }
 
+        private string _timeLeftMsg;
+        public string TimeLeftMsg
+        {
+            get
+            {
+                return _timeLeftMsg;
+            }
+            set
+            {
+                _timeLeftMsg = value;
+                RaisePropertyChanged();
+            }
+        }
+
         /// <summary>
         /// Gets the SetAlarmCommand for the ViewModel.
         /// </summary>
@@ -64,19 +78,27 @@ namespace Clock.ViewModels
             _clockAlarm = new Alarm("06", "00");
             _clockAlarm.TimeArrived += (sender, e) =>
             {
-                MessageBox.Show("Alert", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Good morning", "Alarm", MessageBoxButton.OK, MessageBoxImage.Information);
 
             };
             SetAlarmCommand = new SetAlarmCommand(this);
             StopAlarmCommand = new StopAlarmCommand(this);
         }
-        
-        /// <summary>
-        /// Saves changes made to the Alarm instance.
-        /// </summary>
-        public void SaveChanges()
+
+        public async Task UpdateTimeLeftMsg()
         {
-            Debug.Assert(false, $"Time was updated.");
+            await Task.Run(() =>
+            {
+                while (_clockAlarm.IsAlarmSet)
+                {
+                    var now = DateTime.Now;
+                    var targetTime = new DateTime(now.Year, now.Month, now.Day, Int32.Parse(Hour), Int32.Parse(Minute), 0);
+                    var timeDifference = targetTime - now;
+                    var diff = $"Alarm will occur in {timeDifference.Hours} hours and {timeDifference.Minutes} minutes.";
+                    if (diff != TimeLeftMsg) TimeLeftMsg = diff;
+                }
+                TimeLeftMsg = string.Empty;
+            });
         }
     }
 }
